@@ -1,0 +1,27 @@
+:root {
+  --dark-purple: #660033;
+  --color-dark: #202020;
+  --color-white: #ffffff;
+  --color-light-pink: #FFF4F2;
+  --color-dark-grey: #484848;
+  --h1-font-size: 9.4rem;
+  --h1-secondary-size: 6.4rem;
+  --h1-third-size: 5.4rem;
+  --div-header: 3.6rem;
+  --header-font-size: 2.4rem;
+  --header-second-font: 2.2rem;
+  --subheader-font-size: 2rem;
+  --paragraph-font-size: 1.8rem;
+  --paragraph-second-size: 1.6rem;
+  --btn-font-size: 1.8rem;
+  --bold: 800;
+  --semi-bold: 600;
+  --big-padding: 4.8rem;
+  --medium-padding: 2.4rem;
+  --small-padding: 1.2rem;
+  --big-margin: 5.4rem;
+  --medium-margin: 3.6rem;
+  --small-margin: 1.6rem;
+  --big-gap: 3.6rem;
+  --small-gap: 2.4rem;
+}
