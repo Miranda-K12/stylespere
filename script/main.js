@@ -17,13 +17,17 @@ closeBtns.forEach(function(link) {
 });
 
 /*Slider*/
-    document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.endsWith('index.html')) {
+        // Splide initialization code here
         new Splide('#my-slider', {
             type       : 'loop',
             perPage    : 1,
             autoplay   : true,
         }).mount();
-    });
+    }
+});
+
 
 // FAQ Accordion 
 const box = document.querySelectorAll('.box');
@@ -72,80 +76,79 @@ function smoothScroll() {
 smoothScroll();
 
 //Form Validation
-function formValidation() {
-    const userName = document.getElementById('fname').value.trim();
-    const userEmail = document.getElementById('email').value.trim();
-    const userMessage = document.getElementById('message').value.trim();
-    const errorMessages = [];
-    const validateName = /^[A-Z][a-zA-Z'-]+(?:\s[A-Z][a-zA-Z'-]+)*$/;
-    const validateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!validateEmail.test(userEmail)) {
-        errorMessages.push('Please Enter Valid Email');
-    }
-     if (!validateName.test(userName)) {
-        errorMessages.push('Please Enter Valid Name');
-    }
-     if (userMessage.length <=10) {
-        errorMessages.push('Message must be more than 10 characters');
-    }
-      if (errorMessages.length > 0) {
-        alert(errorMessages.join('\n')); 
-        return false; 
-    }
-    return true;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we are on index.html
+    if (window.location.pathname.endsWith('index.html')) {
+        const submitbtn = document.querySelector('.btn-submit');
+        const closeWindow = document.querySelector('.close');
+        const approveForm = document.querySelector('.approve-window');
+        const wrapper = document.querySelector('.wrapper');
 
-const submitbtn = document.querySelector('.btn-submit');
-const closeWindow = document.querySelector('.close');
-const approveForm = document.querySelector('.approve-window');
-const wrapper = document.querySelector('.wrapper');
+        // Form validation function
+        function formValidation() {
+            const userName = document.getElementById('fname').value.trim();
+            const userEmail = document.getElementById('email').value.trim();
+            const userMessage = document.getElementById('message').value.trim();
+            const errorMessages = [];
+            const validateName = /^[A-Z][a-zA-Z'-]+(?:\s[A-Z][a-zA-Z'-]+)*$/;
+            const validateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-submitbtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (formValidation()) {
-        document.querySelector('.form').reset();
-      approveForm.classList.remove('hidden'); 
-      wrapper.classList.remove('hidden');
-      wrapper.style.display = 'block'; 
-    }
-});
-function closeModal() {
-      approveForm.classList.add('hidden');
-      wrapper.classList.add('hidden');
-      wrapper.style.display = 'none'; 
-}
-closeWindow.addEventListener('click', closeModal);
-window.addEventListener('click', function (event) {
-    if (event.target === wrapper) { 
-      closeModal();
-    }
-});
-window.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    closeModal()
-  }
-});
+            if (!validateEmail.test(userEmail)) {
+                errorMessages.push('Please Enter Valid Email');
+            }
+            if (!validateName.test(userName)) {
+                errorMessages.push('Please Enter Valid Name');
+            }
+            if (userMessage.length <= 10) {
+                errorMessages.push('Message must be more than 10 characters');
+            }
 
-//Shopping
-const shopCards = document.querySelectorAll('.shop-card');
-const detailInfo = document.querySelectorAll('.detail-info');
-const cardBoxes = document.querySelector('.card-clothes');
+            if (errorMessages.length > 0) {
+                alert(errorMessages.join('\n')); 
+                return false; 
+            }
+            return true;
+        }
 
-shopCards.forEach((card, index) => {
-  card.addEventListener('click', () => {
-   shopCards.forEach(card => {
-     card.style.display = 'none';
-    });
-  const cardInfo = detailInfo[index];
-  if (cardInfo) {
-    cardInfo.style.display = 'grid';
-    cardBoxes.style.gridTemplateColumns = '1fr'; 
+        // Submit button event listener
+        if (submitbtn) {
+            submitbtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (formValidation()) {
+                    document.querySelector('.form').reset();
+                    approveForm.classList.remove('hidden'); 
+                    wrapper.classList.remove('hidden');
+                    wrapper.style.display = 'block'; 
+                }
+            });
+        }
+
+        // Close modal function
+        function closeModal() {
+            approveForm.classList.add('hidden');
+            wrapper.classList.add('hidden');
+            wrapper.style.display = 'none'; 
+        }
+        // Close button event listener
+        if (closeWindow) {
+            closeWindow.addEventListener('click', closeModal);
+        }
+        // Click outside modal to close
+        window.addEventListener('click', function (event) {
+            if (event.target === wrapper) { 
+                closeModal();
+            }
+        });
+        // Escape key to close modal
+        window.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
     }
-  });
 });
 
 //Fetching
-
 async function getUserData() {
     try {
         const response = await fetch("https://reqres.in/api/users?page=1");
@@ -167,7 +170,6 @@ async function getUserData() {
                 img.style.marginRight = "10px"; 
                 const userInfoDiv = document.createElement("div");
                 userInfoDiv.classList.add("user-info");
-
                 const name = document.createElement("p");
                 name.className = "user-name";
                 name.style.fontSize = "16px";
@@ -189,4 +191,31 @@ async function getUserData() {
 }
 getUserData();
 
+//Detail info of cards
+const shopCards = document.querySelectorAll('.shop-card');
+const detailInfo = document.querySelectorAll('.detail-info');
+const cardBoxes = document.querySelector('.card-clothes');
 
+shopCards.forEach((card, index) => {
+  card.addEventListener('click', () => {
+   shopCards.forEach(card => {
+     card.style.display = 'none';
+    });
+  const cardInfo = detailInfo[index];
+  if (cardInfo) {
+    cardInfo.style.display = 'grid';
+    cardBoxes.style.gridTemplateColumns = '1fr'; 
+    }
+  });
+});
+//Shopping Functional
+
+//Choose Size
+let selectedSize = '';
+document.querySelectorAll('.size').forEach(sizeItem => {
+  sizeItem.addEventListener('click', () => {
+    document.querySelectorAll('.size').forEach(item => item.classList.remove('selected'));
+    sizeItem.classList.add('selected');
+    selectedSize = sizeItem.getAttribute('data-size');
+  });
+});

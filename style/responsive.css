@@ -103,7 +103,6 @@
   }
 
   .header {
-    justify-content: center;
     gap: var(--big-gap);
   }
 
@@ -117,20 +116,6 @@
 
   .btn {
     margin-top: var(--medium-margin);
-  }
-
-  .search-box {
-    display: inline-block;
-    font-size: var(--paragraph-second-size);
-    border-radius: 0.5rem;
-    width: 30%;
-    transition: width 0.3s ease;
-    z-index: 10;
-  }
-
-  .search-box:focus {
-    width: 32%;
-    outline: none;
   }
 
   .nav-bar {
@@ -170,12 +155,24 @@
   .shop-area {
     width: 40%;
   }
+
+  .results {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*below 560px */
 @media (max-width: 560px) {
   .card-clothes {
     grid-template-columns: 1fr;
+  }
+
+  .cards-box {
+    flex-direction: column;
+  }
+
+  .cart-btn {
+    width: 100%;
   }
 
   .footer {
@@ -235,10 +232,6 @@
 
   .approve-window {
     width: 80%;
-  }
-
-  .cards-box {
-    flex-direction: column;
   }
 }
 
