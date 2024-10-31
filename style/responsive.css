@@ -20,7 +20,7 @@
     margin-top: 0;
   }
 
-  .Product-name {
+  .product-name {
     font-size: var(--header-font-size);
   }
 
@@ -85,9 +85,15 @@
 
 /*below 840px*/
 @media (max-width: 840px) {
+
   .hero-header {
     font-size: var(--h1-third-size);
   }
+
+  .slider-header {
+    font-size: var(--div-header);
+  }
+
 }
 
 /*below 768px*/
@@ -102,6 +108,10 @@
   }
 
   .hero-text p {
+    font-size: var(--header-font-size);
+  }
+
+  .slider-paraghrap {
     font-size: var(--header-font-size);
   }
 
@@ -186,6 +196,15 @@
 @media (max-width: 540px) {
   html {
     font-size: 50%;
+  }
+
+  .slider-3-text {
+    left: 30%;
+    width: 60%;
+  }
+
+  .slider-2-text {
+    width: 60%;
   }
 
   .section {

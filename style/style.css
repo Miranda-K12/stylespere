@@ -34,7 +34,7 @@ body {
   width: 100%;
   height: 6.4rem;
   cursor: pointer;
-  z-index: 50;
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
@@ -176,15 +176,74 @@ body {
 
 /*Hero Section*/
 .hero {
-  background-image: url("../images/hero-img.jpg");
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.splide {
+  height: 100%;
+}
+
+.splide__slide {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: 1s ease-in-out;
-  position: relative;
   height: 100vh;
-  width: 100%;
-  z-index: 10;
+}
+
+.slide-1 {
+  background-image: url('../images/hero-img.jpg');
+  z-index: 100;
+}
+
+.slide-2 {
+  background-image: url('../images/hero-img-2.jpg');
+}
+
+.slide-3 {
+  background-image: url('../images/hero-img-3.jpg');
+}
+
+.slider-2-text {
+  position: absolute;
+  z-index: 20;
+  top: 20%;
+  left: 5%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--big-margin);
+  color: var(--dark-purple);
+  text-align: center;
+}
+
+.slider-3-text {
+  position: absolute;
+  z-index: 20;
+  top: 20%;
+  left: 45%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--big-margin);
+  color: var(--dark-purple);
+  text-align: center;
+}
+
+.slider-header {
+  font-size: var(--h1-third-size);
+  color: var(--dark-purple);
+  font-weight: var(--bold);
+  line-height: 1.5;
+  font-family: "Bodoni Moda";
+}
+
+.slider-paraghrap {
+  font-size: var(--div-header);
+  line-height: 1.5;
+  font-weight: var(--semi-bold);
+  font-family: "Bodoni Moda";
 }
 
 .hero-text {
@@ -206,7 +265,7 @@ body {
   margin-bottom: 6.4rem;
 }
 
-.hero-text p {
+.hero-paraghrap {
   text-align: center;
   font-size: var(--div-header);
   color: var(--color-white);
@@ -469,11 +528,6 @@ body {
   cursor: pointer;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--dark-purple) !important;
-}
-
 /*contact Section */
 .contact-box {
   display: grid;
@@ -732,7 +786,7 @@ label {
   margin: 0 auto;
 }
 
-.Product-name {
+.product-name {
   font-size: var(--div-header);
   text-transform: uppercase;
   font-weight: bold;
@@ -742,7 +796,7 @@ label {
 
 }
 
-.Product-name::after,
+.product-name::after,
 .full-description::after {
   content: "";
   display: block;
@@ -758,7 +812,6 @@ label {
 .size-box p {
   font-size: var(--subheader-font-size);
   font-weight: var(--semi-bold);
-
 }
 
 .full-description {
@@ -788,8 +841,7 @@ label {
 }
 
 .size:hover {
-  background-color: var(--dark-purple);
-  color: var(--color-white);
+  transform: scale(1.05);
   cursor: pointer;
 }
 
@@ -805,38 +857,27 @@ label {
   margin-top: var(--big-margin);
 }
 
-.cart-btn {
-  font-size: var(--btn-font-size);
-  color: var(--color-white);
-  background-color: var(--dark-purple);
-  padding: var(--small-padding);
-  border-radius: 1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  display: block;
-}
 
 .cart-btn:hover,
 .add-btn:hover {
-  background-color: var(--color-light-pink);
-  border: 2px solid var(--dark-purple);
-  color: var(--dark-purple);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
-.add-btn {
+.add-btn,
+.cart-btn {
   margin: var(--medium-margin) 0;
   width: 50%;
   text-align: center;
-  background-color: var(--dark-purple);
   font-size: var(--subheader-font-size);
-  color: var(--color-white);
+  color: var(--dark-purple);
+  border: 2px solid var(--dark-purple);
   display: block;
   font-size: var(--btn-font-size);
   padding: var(--small-padding);
   border-radius: 1rem;
   text-transform: uppercase;
+  font-weight: var(--semi-bold);
 }
 
 .cards {
@@ -851,6 +892,10 @@ label {
   height: auto;
 }
 
+.selected {
+  background-color: var(--dark-purple);
+  color: var(--color-white);
+}
 
 /*footer*/
 .footer {

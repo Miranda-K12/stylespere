@@ -16,6 +16,15 @@ closeBtns.forEach(function(link) {
     });
 });
 
+/*Slider*/
+    document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#my-slider', {
+            type       : 'loop',
+            perPage    : 1,
+            autoplay   : true,
+        }).mount();
+    });
+
 // FAQ Accordion 
 const box = document.querySelectorAll('.box');
   box.forEach(function (item) {

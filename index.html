@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/responsive.css">
   <title>StyleSphere</title>
@@ -37,11 +38,33 @@
     </div>
         </div>
   <section class="hero">
-    <div class="hero-text">
-    <h1 class="hero-header">Step into Style</h1>
-      <p>Discover the Latest Trends Here</p>
-     <a href="#shop" class="btn">Shop now </a>
-     </div>
+  <div class="splide" id="my-slider">
+         <div class="splide__track">
+           <ul class="splide__list">
+            <li class="splide__slide slide-1">
+                <div class="hero-text">
+                    <h1 class="hero-header">Step into Style</h1>
+                     <p class="hero-paraghrap">Discover the Latest Trends Here</p>
+                     <a href="#shop" class="btn">Shop now </a>
+                </div>
+            </li>
+           <li class="splide__slide slide-2">
+              <div class="slider-2-text">
+                <h2 class="slider-header">Redefining Style!</h2>
+                <p class="slider-paraghrap">Crafted for the Modern Man</p>
+               <a href="#shop" class="btn">Shop now </a>
+              </div>
+            </li>
+            <li class="splide__slide slide-3">
+                 <div class="slider-3-text">
+                <h2 class="slider-header">Carry Your World in Style!</h2>
+                <p class="slider-paraghrap">Effortless Style, Unmatched Versatility</p>
+               <a href="#shop" class="btn">Shop now </a>
+              </div>
+            </li>
+        </ul>
+    </div>
+    </div>
   </section>
   <div class="container">
   <section class="shop section" id="shop">
@@ -186,8 +209,8 @@
             <p class="new-paraghrap">I had an amazing time here! The variety of stylish options was impressive. The staff was supportive and helped me a lot.</p>
           </div>
           <div class="user-box">
-            <p class="new-paraghrap">I had a wonderful experience at this store! The selection was trendy and diverse, and I will definitely be coming back!</p>
-          </div>
+            <p class="new-paraghrap"> I was really impressed with my visit to this shop! The variety of products was fantastic, and I found exactly what I was looking for.</p>
+</div>
 </div>
         </section>
   <section class="contact section" id="contact">
@@ -291,7 +314,7 @@
 <p class="author">created by Miranda Kachlavashvili</p>
 </div>
 </div>
- <script src="script/main.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="script/main.js"></script>
 </body>
 </html>

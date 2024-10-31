@@ -32,3 +32,15 @@ closeBtns.forEach(function(link) {
         hamburger.classList.remove("active");  
     });
 });
+
+//Shopping Functional
+
+//Choose Size
+let selectedSize = '';
+document.querySelectorAll('.size').forEach(sizeItem => {
+  sizeItem.addEventListener('click', () => {
+    document.querySelectorAll('.size').forEach(item => item.classList.remove('selected'));
+    sizeItem.classList.add('selected');
+    selectedSize = sizeItem.getAttribute('data-size');
+  });
+});
