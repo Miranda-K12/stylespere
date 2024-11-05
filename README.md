@@ -18,5 +18,5 @@ This project utilizes a variety of technologies and techniques to deliver a mode
 - Form Validation: Implements client-side form validation to ensure data integrity before submission.
 - DOM Manipulation: Gained practical experience working with burger menu, modal window, slider and etc.
 ####  APIs and Libraries
-Fetch API: Handles HTTP requests to interact with external data sources and APIs.
-npm: Splide.js is used to create a smooth, interactive hero section slider. 
+- Fetch API: Handles HTTP requests to interact with external data sources and APIs.
+- npm: Splide.js is used to create a smooth, interactive hero section slider. 
