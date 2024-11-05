@@ -1,16 +1,18 @@
-/*below 1200px*/
 @media (max-width: 1200px) {
   .about-description {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: 1.6rem;
     margin-top: var(--small-margin);
   }
 
   .features {
+    -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
 
   .faqs {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: 1.6rem;
     margin-top: var(--small-margin);
@@ -55,29 +57,37 @@
   }
 
   .card-clothes {
+    -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
 
   .detail-info {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: var(--small-gap);
   }
 
   .contact-box {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: var(--medium-margin);
   }
 
   .detail-text {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
   .user-wrapper {
+    -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
 
   .footer {
+    -ms-grid-columns: 1fr 1rem 1fr;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
@@ -124,9 +134,17 @@
 
   .hamburger {
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 30px;
     height: 30px;
@@ -134,19 +152,25 @@
   }
 
   .burger-menu.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
   .hero-text {
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
   }
 
   .shop {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     gap: var(--small-gap);
     margin-top: var(--small-margin);
@@ -156,7 +180,8 @@
     width: 40%;
   }
 
-  .results {
+  .result-box {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 }
@@ -164,10 +189,14 @@
 /*below 560px */
 @media (max-width: 560px) {
   .card-clothes {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 
   .cards-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 
@@ -209,10 +238,12 @@
   }
 
   .features {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 
   .user-wrapper {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 
@@ -222,6 +253,7 @@
   }
 
   .contact-us {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     font-size: var(--paraghrap-font-size);
   }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/reset.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/responsive.css">
   <title>StyleSphere</title>
@@ -11,19 +12,20 @@
 <body>
 <div class="header">
 <div class="logo">
-       <a href="index.html">
+         <a href="index.html">
   <img src="images/logo.png" alt="logo" class="logo"></a>
       </div>
       <nav class="nav-bar">
         <ul class="nav-bar-list">
-           <li class="nav-item nav-item--active"><a class="nav-a" href="index.html">Home</a></li>
+          <li class="nav-item nav-item--active"><a class="nav-a" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-a" href="#shop">Shop</a></li>
-          <li class="nav-item"><a class="nav-a" href="#aboutp">About</a></li>
+          <li class="nav-item"><a class="nav-a" href="#about">About</a></li>
            <li><a class="burger-list" href="#testimonials">Testimonails</a></li>
            <li class="nav-item"><a class="nav-a" href="#contact">Contact</a></li>
         </ul>
         </nav>
-        <div class="basket"><img src="images/icons/basket.svg" alt="basket" class="basket"></div>
+         <div class="basket"><img src="images/icons/basket.svg" alt="basket" class="basket">
+        <span class="item-number">0</span></div>
          <div class="hamburger" id="hamburger">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -37,7 +39,45 @@
         <a class="burger-list" href="#contact">Contact</a>
     </div>
         </div>
+          <section class="hero">
+  <div class="splide" id="my-slider">
+         <div class="splide__track">
+           <ul class="splide__list">
+            <li class="splide__slide slide-1">
+                <div class="hero-text">
+                    <h1 class="hero-header">Step into Style</h1>
+                     <p class="hero-paraghrap">Discover the Latest Trends Here</p>
+                     <a href="#shop" class="btn">Shop now </a>
+                </div>
+            </li>
+           <li class="splide__slide slide-2">
+              <div class="slider-2-text">
+                <h2 class="slider-header">Redefining Style!</h2>
+                <p class="slider-paraghrap">Crafted for the Modern Man</p>
+               <a href="#shop" class="btn">Shop now </a>
+              </div>
+            </li>
+            <li class="splide__slide slide-3">
+                 <div class="slider-3-text">
+                <h2 class="slider-header">Carry Your World in Style!</h2>
+                <p class="slider-paraghrap">Effortless Style, Unmatched Versatility</p>
+               <a href="#shop" class="btn">Shop now </a>
+              </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+  </section>
 <div class="container">
+   <div class="search-box">
+    <h2 class="div-header">Find Your Perfect Match!</h2>
+     <input type="search" class="search" name="search" placeholder="Search">
+    </div>
+    <div class="search-result">
+      <p class="error-message"></p>
+       <div class="result-box">
+     </div>
+    </div>
   <div class="card-clothes">
     <div class="shop-card">
     <img src="images/bags/1.jpg" alt="Grey-bag" class="card-img">
@@ -567,6 +607,7 @@ Its timeless brown hue adds a classic touch, making it a stylish choice for any 
 <p>created by Miranda Kachlavashvili</p>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 <script src="script/main.js"></script>
   </body>
   </html>

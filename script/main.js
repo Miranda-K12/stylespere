@@ -18,16 +18,14 @@ closeBtns.forEach(function(link) {
 
 /*Slider*/
  document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.endsWith('index.html')) {
+    
         // Splide initialization code here
         new Splide('#my-slider', {
             type       : 'loop',
             perPage    : 1,
             autoplay   : true,
         }).mount();
-    }
-});
-
+ });
 
 // FAQ Accordion 
 const box = document.querySelectorAll('.box');
@@ -78,7 +76,7 @@ smoothScroll();
 //Form Validation
 document.addEventListener('DOMContentLoaded', () => {
     // Check if we are on index.html
-    if (window.location.pathname.endsWith('index.html')) {
+   
         const submitbtn = document.querySelector('.btn-submit');
         const closeWindow = document.querySelector('.close');
         const approveForm = document.querySelector('.approve-window');
@@ -145,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal();
             }
         });
-    }
 });
 
 //Fetching
@@ -190,32 +187,67 @@ async function getUserData() {
     }
 }
 getUserData();
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('.search'); 
+    const resultsDiv = document.querySelector('.result-box'); 
+    const errorMessage = document.querySelector('.error-message'); 
+    const products = Array.from(document.querySelectorAll('.shop-card')); 
+    const cardBoxes = document.querySelector('.card-clothes'); // Assuming this is where cards are shown
+    const detailInfo = document.querySelectorAll('.detail-info'); 
 
-//Detail info of cards
-const shopCards = document.querySelectorAll('.shop-card');
-const detailInfo = document.querySelectorAll('.detail-info');
-const cardBoxes = document.querySelector('.card-clothes');
+    // Search functionality
+    const searchProducts = () => {
+        const query = searchInput.value.toLowerCase();
+        resultsDiv.innerHTML = ''; // Clear previous results
+        let found = false;
 
-shopCards.forEach((card, index) => {
-  card.addEventListener('click', () => {
-   shopCards.forEach(card => {
-     card.style.display = 'none';
+        // Show all products if no query
+        if (query === '') {
+            products.forEach(product => {
+                product.style.display = 'block'; // Show all products
+            });
+            errorMessage.style.display = 'none'; 
+            return;
+        }
+
+        products.forEach(product => {
+            const productNameElement = product.querySelector('.product'); 
+
+            if (productNameElement) {
+                const productName = productNameElement.textContent.toLowerCase();
+                console.log(`Checking product: ${productName}`);
+
+                if (productName.includes(query)) {
+                    product.style.display = 'block'; // Show product that matches
+                    found = true;
+                } else {
+                    product.style.display = 'none'; // Hide non-matching products
+                }
+            }
+        });
+
+        if (!found) {
+            errorMessage.textContent = 'Nothing was found. Want to explore other categories?'; 
+            errorMessage.style.display = 'block'; 
+        } else {
+            errorMessage.style.display = 'none'; 
+        }
+    };
+
+    searchInput.addEventListener('input', searchProducts);
+
+    products.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            products.forEach(card => {
+                card.style.display = 'none';
+            });
+
+            // Display the corresponding detail information
+            const cardInfo = detailInfo[index];
+            if (cardInfo) {
+                cardInfo.style.display = 'grid';
+                cardBoxes.style.gridTemplateColumns = '1fr'; 
+            }
+        });
     });
-  const cardInfo = detailInfo[index];
-  if (cardInfo) {
-    cardInfo.style.display = 'grid';
-    cardBoxes.style.gridTemplateColumns = '1fr'; 
-    }
-  });
-});
-//Shopping Functional
-
-//Choose Size
-let selectedSize = '';
-document.querySelectorAll('.size').forEach(sizeItem => {
-  sizeItem.addEventListener('click', () => {
-    document.querySelectorAll('.size').forEach(item => item.classList.remove('selected'));
-    sizeItem.classList.add('selected');
-    selectedSize = sizeItem.getAttribute('data-size');
-  });
 });
