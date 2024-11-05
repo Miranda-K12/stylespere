@@ -128,7 +128,7 @@ body {
 }
 
 /*Cart Tab */
-.basket-items {
+.basket {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
